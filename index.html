@@ -6,9 +6,10 @@
         h1{text-align: center;}
         .button{border: none;background-color: white;font-family: "Microsoft JhengHei";transition-duration: 0.4s;float: right;}
         .button:hover{color: gray;}
-        img { opacity: 1; transition: opacity 1s;}
-        img[data-src] { opacity: 0;}
+        body {animation: fadeInAnimation ease 3s;animation-iteration-count: 1;animation-fill-mode: forwards;}
+        @keyframes fadeInAnimation {0% {opacity: 0;}100% {opacity: 1;}}
     </style>
+
 </head>
 <body>
     <form method="get" action="/test/aboutus.html">
@@ -17,7 +18,7 @@
     <form method="get" action="/test/howtopost.html">
         <button type="submit">徵稿辦法</button>
     </form><br>
-    <img data-src="3.jpg" alt="">
+
     <img src="3.jpg" width="100%" height="100%">
     <!--<h1>第13屆耕心文學獎   徵稿辦法</h1>
     <h3>說明</h3>
@@ -52,9 +53,9 @@
         聯絡人：黃靖雯、林季葦<br>
         聯絡電話：0970763261、0922709092<br>
         聯絡信箱：hung.jing.wen1227@gmail.com、D092365555847@gmail.com<br></address>
+    <script>
+        [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+        img.setAttribute('src', img.getAttribute('data-src'));
+        img.onload = function() {img.removeAttribute('data-src'); };});
+    </script>
 </body>
-<script>
-    [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
-    img.setAttribute('src', img.getAttribute('data-src'));
-    img.onload = function() {img.removeAttribute('data-src'); };});
-</script>
